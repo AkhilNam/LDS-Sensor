@@ -12,8 +12,10 @@ pin = board.get_pin('a:5:i') #a for analog, 5 for pin number, i for input
 #define array to store values, maybe add to dataframe 
 
 volt_data = []
+duration = int(input())
+start = time.time()
 
-while True: #make while loop time based 
+while time.time() - start < duration: #make while loop time based 
     sensorVal = pin.read()
     
     if sensorVal is None: 
