@@ -32,7 +32,15 @@ while time.time() - start < duration: #make while loop time based
 
     time.sleep(1) #parameter is in seconds
 
+board.exit()
 
+x_axis = list(range(len(volt_data)))  # this will only work for 1s increments which is not reasonable
 
-
+plt.figure(figsize=(10, 5))
+plt.plot(x_axis, volt_data, linestyle='-', color = 'g', label='Voltage (V)')
+plt.title("Voltage/Time")
+plt.xlabel("Time (s)")
+plt.ylabel("Voltage (V)") 
+plt.legend()
+plt.show()
 
