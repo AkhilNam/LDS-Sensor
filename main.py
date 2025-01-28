@@ -1,6 +1,7 @@
 from pyfirmata import Arduino, util
 import time
 import matplotlib.pyplot as plt
+import json
 #import pandas as pd
 board = Arduino('COM3')
 voltage = 0.0
@@ -33,8 +34,11 @@ while time.time() - start < duration: #make while loop time based
     time.sleep(1) #parameter is in seconds
 
 board.exit()
-
+fileName = input("File name?")
 x_axis = list(range(len(volt_data)))  # this will only work for 1s increments which is not reasonable
+
+with open(f"data_collected/{fileName}.json", "w") as json_file:
+    json.dump({"Time": x_axis, "Voltage": volt_data}, json_file, indent = 1)
 
 plt.figure(figsize=(10, 5))
 plt.plot(x_axis, volt_data, linestyle='-', color = 'g', label='Voltage (V)')
@@ -42,5 +46,9 @@ plt.title("Voltage/Time")
 plt.xlabel("Time (s)")
 plt.ylabel("Voltage (V)") 
 plt.legend()
+plt.grid(True)
+plt.savefig(f'data_collected/{fileName}.png', dpi=300)
 plt.show()
+
+print("JSON and PNG files saved")
 
