@@ -1,9 +1,11 @@
 from pyfirmata import Arduino, util
+import serial 
 import time
 import matplotlib.pyplot as plt
 import json #could do .txt, lets test json first 
 #import pandas as pd
-board = Arduino('COM3')
+
+board = Arduino("COM3")
 voltage = 0.0
 
 it = util.Iterator(board)
