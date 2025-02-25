@@ -4,7 +4,7 @@ void setup() {
 
 void loop() {
     int sensorVal = analogRead(A5); 
-    float voltage = sensorVal * (5.0 / 1023.0);  
-    Serial.println(voltage);  
+    float voltage = sensorVal * (5.00 / 1023.0);  
+    Serial.println(voltage, 3);  
     delay(500);  
 }
