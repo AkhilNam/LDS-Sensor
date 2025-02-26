@@ -4,7 +4,7 @@ import time
 import matplotlib.pyplot as plt
 import json #could do .txt, lets test json first 
 #import pandas as pd
-
+#fake push
 board = Arduino("COM3")
 voltage = 0.0
 
