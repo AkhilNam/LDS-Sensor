@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import json
 
 
-board = serial.Serial(port='COM3', baudrate=115200, timeout=.1)
+board = serial.Serial(port='COM3', baudrate=9600, timeout=.1)
 time.sleep(2)  # Wait for connection
 print("Connected to Arduino on COM3")
 
